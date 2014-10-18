@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Fakerisimo::Application.config.secret_key_base = '3008c10d3d2e987f32e9c19f537f1eb98eacb07acea32a526a3374c5cea13ff32431d082563952b0688f34d64e99640d3fc8f8327c616ad35aa59f2a6fbe66e1'
+Fakerisimo::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']
