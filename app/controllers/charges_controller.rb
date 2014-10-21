@@ -18,10 +18,10 @@ class ChargesController < ApplicationController
       :currency    => 'usd'
     )
     @user = current_user.id
-    Credit.create(value: 100, user_id:@user)
+    Credit.create(value: @amount, user_id:@user)
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to charges_path
+    redirect_to dashboards_path
   end
 end

@@ -1,9 +1,17 @@
 Fakerisimo::Application.routes.draw do
+  get "people/index"
+  get "dashboard/index"
   devise_for :users
   resources :charges
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      resources :people
+    end
+  end
+  resources :people
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  root to: 'welcome#index'
+  root to: 'people#index'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

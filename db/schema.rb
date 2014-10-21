@@ -11,13 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019070805) do
+ActiveRecord::Schema.define(version: 20141020015802) do
 
   create_table "credits", force: true do |t|
     t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "people", force: true do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.string   "city"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
