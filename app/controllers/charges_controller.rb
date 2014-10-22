@@ -19,9 +19,11 @@ class ChargesController < ApplicationController
     )
     @user = current_user.id
     Credit.create(value: @amount, user_id:@user)
+     redirect_to root_path
+     flash[:notice] = "Credit charge success"
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to dashboards_path
+    redirect_to root_path
   end
 end

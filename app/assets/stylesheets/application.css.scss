@@ -2,3 +2,16 @@
 
  @import "bootstrap";
  
+ .dash {
+  width: 70%;
+  background-color: rgba(224, 231, 240, 0.72);
+  min-height: 400px;
+ margin: 2% 2%;
+  display: inline-block;
+  border-radius: 15px;
+  padding: 5px;
+ }
+
+ .color {
+  color:rgb(0, 147, 63);
+ }

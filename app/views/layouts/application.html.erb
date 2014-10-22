@@ -9,6 +9,7 @@
   <body>
 
     <div class = "container">
+      <div class = "row">
       <ul class = "nav nav-tabs">
           <li><%= link_to "Fakerisimo", root_path %></li>
             <div class="pull-right user-info">
@@ -22,6 +23,7 @@
             </div>
 
       </ul>
+      </div>
       
         <% if flash[:notice] %>
           <div class="alert alert-success">

@@ -1,22 +1,23 @@
-br/>
-<div class="jumbotron">
-  <h1>Fakerismo</h1>
-  <p>Fakerisimo is a resource for sharing links with your friends!</p>
-  <p>
-  </p>
-</div>
+<br/>
+ <h2 class="text-center">Dashboard</h2>
+<span class="pull-left">
+    <%= form_tag charges_path do %>
+      <article class="text-center">
+        <label class="amount">
+          <% current_user.credits.each do |credit| %>
+            <p class="color">My credit:<%= credit.value%></p>
+            <% end %>
+          <span>Add $1.00</span>
+        </label>
+      </article>
 
-<div class="row">
-  <div class="col-md-4">
-    <h2>Solves world hunger</h2>
-    <p>Fakerisimo will deliver food and water to those in need, all over the world.</p>
-  </div>
-  <div class="col-md-4">
-    <h2>Eliminates poverty</h2>
-    <p>Fakerisimo will deliver money and education to those in need, all over the world.</p>
-  </div>
-  <div class="col-md-4">
-    <h2>Makes you better looking</h2>
-    <p>Fakerisimo will make you better looking: it's scientifically proven to make men look like Ryan Gosling and women look like Shakira.</p>
-  </div>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="A month's subscription"
+              data-amount="100">
+      </script>
+    <% end %>
+    </span>
+<div class="dash text-center">
+ 
 </div>
