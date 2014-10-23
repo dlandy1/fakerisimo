@@ -8,6 +8,10 @@ class UserController < ApplicationController
       render "devise/registrations/edit"
     end
   end
+
+  def index
+    
+  end
  
   private
 

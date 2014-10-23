@@ -1,13 +1,16 @@
 <br/>
- <h2 class="text-center">Dashboard</h2>
 <span class="pull-left">
     <%= form_tag charges_path do %>
       <article class="text-center">
         <label class="amount">
+          <% if !current_user.credits.first.nil? %>
           <% current_user.credits.each do |credit| %>
-            <p class="color">My credit:<%= credit.value%></p>
+            <p class="color">My credit:  <%= credit.value%> </p>
             <% end %>
-          <span>Add $1.00</span>
+            <% else %>
+             <p class="color">My credits: <b> 0 </b> </p>
+        <% end %>
+          <span class="h5">Add $1.00</span>
         </label>
       </article>
 
@@ -18,6 +21,7 @@
       </script>
     <% end %>
     </span>
+   <span class="h2 col-md-4 col-md-offset-3 ">Dashboard</span>
 <div class="dash text-center">
  
 </div>

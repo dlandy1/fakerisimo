@@ -2,6 +2,7 @@ Fakerisimo::Application.routes.draw do
   get "people/index"
   get "dashboard/index"
   devise_for :users
+  resources :user, only: [:index]
   resources :charges
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do

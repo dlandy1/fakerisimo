@@ -2,10 +2,13 @@ module Api
   module V1
     class PeopleController < ApplicationController
       before_filter :restrict_access
+
       respond_to :json
 
       def index
+        if !current_user.credits.first.nil?
             @people = []
+          if params[:count].to_i <= 500
         params[:count].to_i.times do
           @people << People.new(
             name:     Faker::Name.name,
@@ -14,7 +17,16 @@ module Api
             state:    Faker::Address.state
           )
         end
+        
         respond_with  @people
+        @numb = current_user.credits.first.value
+        current_user.credits.first.update(value: (@numb-1))
+        else
+          render :nothing => true, :status => 413
+        end
+      else
+       render :nothing => true, :status => 401
+       end
       end
 
        private
