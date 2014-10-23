@@ -31,7 +31,7 @@ module Api
 
        private
       def restrict_access
-        api_key = params[:auth_token]
+        api_key = params[:auth_token].presence && User.find_by_authentication_token(params[:auth_token].presence.to_s)
         head :unauthorized unless api_key
       end
 
