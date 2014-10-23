@@ -23,5 +23,19 @@
     </span>
    <span class="h2 col-md-4 col-md-offset-3 ">Dashboard</span>
 <div class="dash text-center">
- 
+  <% if !current_user.gets.last.nil? %>
+  <table class="table">
+       <tbody>
+    <% current_user.gets.each do |get| %>
+    
+      <tr class="success"> 
+         <td>GET <%= get.call %></td>
+      </tr>
+    <% end %>
+      </tbody>
+    </table>
+  <% end %>
 </div>
+
+
+

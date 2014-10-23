@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
          has_many :credits, dependent: :destroy
+         has_many :gets, dependent: :destroy
 
          before_save :ensure_authentication_token
  

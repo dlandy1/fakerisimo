@@ -18,9 +18,10 @@ module Api
           )
         end
         
-        respond_with  @people
         @numb = current_user.credits.first.value
         current_user.credits.first.update(value: (@numb-1))
+        Get.create(call: "#{request.fullpath}", user_id: current_user.id)
+        respond_with  @people
         else
           render :nothing => true, :status => 413
         end

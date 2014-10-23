@@ -17,7 +17,7 @@ module Fakerisimo
   class Application < Rails::Application
   config.require "api_throttle"
   # max 100 requests per hour per ip
-  config.middleware.use ApiThrottle, :max => 10
+  config.middleware.use ApiThrottle, :max => 100
 
   end
 end
